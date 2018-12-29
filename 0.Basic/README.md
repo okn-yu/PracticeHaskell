@@ -16,7 +16,7 @@
 - そのため以下2つは同じ
 
 ``
-Int -> Int -> Int
+Int -> Int -> Int   
 Int -> (Int -> (Int -> Int))
 ``
 
