@@ -27,6 +27,7 @@ Int -> (Int -> (Int -> Int))
 ```
 add' :: Int -> (Int -> Int)
 add' x y = x + y
+```
 
 ```
 *Main> :type (add' 1)
