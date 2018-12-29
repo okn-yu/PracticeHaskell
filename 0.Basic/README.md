@@ -20,4 +20,17 @@ Int -> Int -> Int
 Int -> (Int -> (Int -> Int))
 ```
 
+## 部分適用
+- カリー化された関数に部分適用（少ない個数の引数を適用）すると関数が作成される
+- 下の例において「add' 1」は「Int -> Int」
 
+```
+add' :: Int -> (Int -> Int)
+add' x y = x + y
+
+```
+*Main> :type (add' 1)
+(add' 1) :: Int -> Int
+*Main> (add' 1) 2
+3
+```
