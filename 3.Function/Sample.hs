@@ -47,16 +47,22 @@ v :: Bool -> Bool -> Bool
 False `v` b = b
 True `v` _  = True
 
--- 問題5 以下の演算子の書き直し
+-- 問題4 以下の演算子の書き直し
 -- True ^ True = True
 -- _ ^ _ = False
 
 and' :: Bool -> Bool -> Bool
 a `and'` b = if (a == True && b == True) then True else False
 
--- 問題6 演算子の書き直し
+-- 問題5 演算子の書き直し
 -- True ^ b = b
 -- False ^ _ = False
 
 and'' :: Bool -> Bool -> Bool
 a `and''` b = if a == True then b else False
+
+-- 問題5 関数のラムダ式に書き直し
+-- mult x y z = x * y * z
+mult = \x -> (\y -> (\z -> x * y * z))
+
+-- 注　無名関数も上のように関数名と紐付けが可能
