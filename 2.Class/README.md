@@ -9,3 +9,19 @@
 - Haskellの型はオブジェクト指向のクラスに相当
 - Haskellのクラスはオブジェクト指向の複数クラスを包含する親クラスに相当
 - Haskellのメソッドはオーバロードに酷似している
+
+## 関数の型とEqクラス
+- 関数の型はEqクラスではない
+- 同じ型の2つの関数が同等であるのは、同じ引数に対して同等な結果を返す場合
+- 以下のように関数reverseと関数headは同じ関数型だが結果が一致しない
+
+```
+Prelude> :type reverse
+reverse :: [a] -> [a]
+Prelude> :type tail
+tail :: [a] -> [a]
+Prelude> reverse []
+[]
+Prelude> head []
+*** Exception: Prelude.head: empty list
+```
