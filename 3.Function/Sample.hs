@@ -1,12 +1,14 @@
 -- プログラミングHaskellの第4章の練習問題から抜粋
 
+-- 問題1 以下の関数の実装
 -- > halve [1, 2, 3, 4]
 --([1,2],[3,4])
 
 halve :: [a] -> ([a], [a])
 halve xs |even (length xs) = splitAt num xs
       where num = div (length xs) 2
-      
+ 
+-- 問題2 []を受け取れるtail関数の実装3通り
 -- safetail 1      
 safetail :: [a] -> [a]
 safetail xs = if null xs then [] else tail xs
@@ -21,6 +23,7 @@ safetail :: [a] -> [a]
 safetail (_: xs) = xs
 safetail [] = []
 
+-- 問題3 or演算子の実装4通り
 -- ||演算子の再実装 1
 v :: Bool -> Bool -> Bool
 True `v` True = True
@@ -44,17 +47,16 @@ v :: Bool -> Bool -> Bool
 False `v` b = b
 True `v` _  = True
 
--- 演算子の書き直し1
+-- 問題5 以下の演算子の書き直し
 -- True ^ True = True
 -- _ ^ _ = False
 
 and' :: Bool -> Bool -> Bool
 a `and'` b = if (a == True && b == True) then True else False
 
--- 演算子の書き直し2
+-- 問題6 演算子の書き直し
 -- True ^ b = b
 -- False ^ _ = False
 
 and'' :: Bool -> Bool -> Bool
 a `and''` b = if a == True then b else False
-
