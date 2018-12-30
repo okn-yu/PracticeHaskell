@@ -40,4 +40,8 @@ pair :: a -> b -> (a, b)
 Prelude> double x = x * x
 Prelude> :type double
 double :: Num a => a -> a
+
+Prelude> palindrome xs = reverse xs == xs
+Prelude> :type palindrome
+palindrome :: Eq a => [a] -> Bool
 ```
