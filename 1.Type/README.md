@@ -30,4 +30,7 @@ v::T
 ```
 Prelude> :type not
 not :: Bool -> Bool
+
+Prelude> :type [tail, init, reverse]
+[tail, init, reverse] :: [[a] -> [a]]
 ```
