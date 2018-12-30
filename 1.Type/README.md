@@ -36,4 +36,8 @@ Prelude> :type [tail, init, reverse]
 Prelude> pair x y = (x, y)
 Prelude> :type pair
 pair :: a -> b -> (a, b)
+
+Prelude> double x = x * x
+Prelude> :type double
+double :: Num a => a -> a
 ```
