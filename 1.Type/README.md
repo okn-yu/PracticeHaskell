@@ -45,7 +45,7 @@ Prelude> palindrome xs = reverse xs == xs
 Prelude> :type palindrome
 palindrome :: Eq a => [a] -> Bool
 
-Prelude> twice f x = f(f x)
+Prelude> twice f x = f (f x)
 Prelude> :type twice
 twice :: (t -> t) -> t -> t
 ```
