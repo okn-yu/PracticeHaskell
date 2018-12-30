@@ -43,3 +43,18 @@ _ `v` _ = True
 v :: Bool -> Bool -> Bool
 False `v` b = b
 True `v` _  = True
+
+-- 演算子の書き直し1
+-- True ^ True = True
+-- _ ^ _ = False
+
+and' :: Bool -> Bool -> Bool
+a `and'` b = if (a == True && b == True) then True else False
+
+-- 演算子の書き直し2
+-- True ^ b = b
+-- False ^ _ = False
+
+and'' :: Bool -> Bool -> Bool
+a `and''` b = if a == True then b else False
+
