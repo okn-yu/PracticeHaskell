@@ -10,3 +10,9 @@ safetail :: [a] -> [a]
 safetail xs = if null xs then [] else tail xs
 
 -- safetail 2
+safetail xs |null xs = []
+            |otherwise = tail xs
+            
+-- safetail 3
+safetail (_: xs) = xs
+safetail [] = []
