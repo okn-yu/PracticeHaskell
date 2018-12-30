@@ -1,3 +1,5 @@
+-- プログラミングHaskellの第4章の練習問題から抜粋
+
 -- > halve [1, 2, 3, 4]
 --([1,2],[3,4])
 
@@ -10,9 +12,11 @@ safetail :: [a] -> [a]
 safetail xs = if null xs then [] else tail xs
 
 -- safetail 2
+safetail :: [a] -> [a]
 safetail xs |null xs = []
             |otherwise = tail xs
             
 -- safetail 3
+safetail :: [a] -> [a]
 safetail (_: xs) = xs
 safetail [] = []
