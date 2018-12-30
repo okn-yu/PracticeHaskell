@@ -25,12 +25,15 @@ v::T
 ## 関数型
 
 - 関数も型をもつ
-- 関数notは型Bool->Boolの値
-
+- 関数型の例は以下
 ```
 Prelude> :type not
 not :: Bool -> Bool
 
 Prelude> :type [tail, init, reverse]
 [tail, init, reverse] :: [[a] -> [a]]
+
+Prelude> pair x y = (x, y)
+Prelude> :type pair
+pair :: a -> b -> (a, b)
 ```
