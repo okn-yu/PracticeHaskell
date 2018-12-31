@@ -2,3 +2,9 @@
 power :: Int -> Int -> Int
 power n m | m == 0 = n
           | n > 0  = n + power n (m - 1)
+
+-- 2.and関数の実測
+and' :: [Bool] -> Bool
+and' (False: _) = False
+and' (True: xs) = and' xs
+and' [] = True
