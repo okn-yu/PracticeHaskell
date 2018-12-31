@@ -30,3 +30,7 @@ find k t = [v| (k', v) <- t, k == k']
 positions :: Eq a => a -> [a] -> [Int]
 positions x xs = find x [(x', i)| (x', i) <- zip xs [0..n]]
                  where n = length xs - 1
+
+-- 7.リストの内積を計算する関数の実装
+scalarproduct :: [Int] -> [Int] -> Int
+scalarproduct x y = sum [x' * y'| (x', y') <- zip x y]
