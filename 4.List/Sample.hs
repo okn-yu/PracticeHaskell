@@ -22,3 +22,11 @@ perfect n = [x| x <- [1..n], x == sum (factors x) - x]
 -- Prelude> concat[[(1, x)| x <- [4, 5, 6]],[(2, x)| x <- [4, 5, 6]]]
 Prelude> concat[[(x, y)| y <- [4, 5, 6]]| x <- [1, 2, 3]]
 [(1,4),(1,5),(1,6),(2,4),(2,5),(2,6),(3,4),(3,5),(3,6)]
+
+-- 6.目的の値がリストの何番目に存在するかを確認する関数の実装
+find :: Eq a => a -> [(a, b)] -> [b]
+find k t = [v| (k', v) <- t, k == k']
+
+positions :: Eq a => a -> [a] -> [Int]
+positions x xs = find x [(x', i)| (x', i) <- zip xs [0..n]]
+                 where n = length xs - 1
