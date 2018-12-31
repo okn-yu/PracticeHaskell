@@ -7,6 +7,6 @@ power n m | m == 0 = n
 
 -- 3-1.and関数の実測
 and' :: [Bool] -> Bool
+and' [] = True
 and' (False: _) = False
 and' (True: xs) = and' xs
-and' [] = True
