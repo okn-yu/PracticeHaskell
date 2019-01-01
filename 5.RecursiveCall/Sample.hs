@@ -15,3 +15,8 @@ and' (True: xs) = and' xs
 concat' :: [[a]] -> [a]
 concat' [] = []
 concat' (x: xs) = x ++ concat' xs
+
+-- 3.3 replicate関数の実装
+replicate' :: Int -> a -> [a]
+replicate' 0 x = []
+replicate' n x = replicate' (n - 1) x ++ [x]
