@@ -26,3 +26,7 @@ exclam :: [a] -> Int -> a
 exclam (x: xs) 0 = x
 exclam (x: xs) n = exclam xs (n - 1)
 
+-- 3.5 elem関数の実装
+elem' :: Eq a => a -> [a] -> Bool
+elem' x [] = False
+elem' x (y: ys) = if x==y then True else elem' x ys
