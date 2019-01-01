@@ -30,3 +30,9 @@ exclam (x: xs) n = exclam xs (n - 1)
 elem' :: Eq a => a -> [a] -> Bool
 elem' x [] = False
 elem' x (y: ys) = if x==y then True else elem' x ys
+
+-- 4. 2つの整列されたリスト同士の整列を行うmerge関数の実装
+merge :: Ord a => [a] -> [a] -> [a]
+merge x [] = x
+merge [] x = x
+merge (x: xs) (y: ys) = if x > y then y: (x: (merge xs ys)) else x: (y: (merge xs ys))
