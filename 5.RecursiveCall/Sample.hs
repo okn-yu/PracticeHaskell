@@ -20,3 +20,9 @@ concat' (x: xs) = x ++ concat' xs
 replicate' :: Int -> a -> [a]
 replicate' 0 x = []
 replicate' n x = replicate' (n - 1) x ++ [x]
+
+-- 3.4 !!関数の実装
+exclam :: [a] -> Int -> a
+exclam (x: xs) 0 = x
+exclam (x: xs) n = exclam xs (n - 1)
+
