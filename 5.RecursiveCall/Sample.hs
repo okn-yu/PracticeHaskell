@@ -35,7 +35,7 @@ elem' x (y: ys) = if x==y then True else elem' x ys
 merge :: Ord a => [a] -> [a] -> [a]
 merge x [] = x
 merge [] x = x
-merge (x: xs) (y: ys) = if x > y then y: (x: (merge xs ys)) else x: (y: (merge xs ys))
+merge (x: xs) (y: ys) = if x > y then y: (merge ys (x: xs)) else x: (merge xs (y: ys))
 
 -- 6-1. sum関数の実装
 sum' :: Num a => [a] -> a
