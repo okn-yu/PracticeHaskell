@@ -36,3 +36,8 @@ merge :: Ord a => [a] -> [a] -> [a]
 merge x [] = x
 merge [] x = x
 merge (x: xs) (y: ys) = if x > y then y: (x: (merge xs ys)) else x: (y: (merge xs ys))
+
+-- 6-1. sum関数の実装
+sum' :: Num a => [a] -> a
+sum' [] = 0
+sum' (x: xs) = x + (sum' xs)
