@@ -10,3 +10,9 @@ all' p (x: xs) |p x = all' p xs
                |otherwise = False
                
 -- 2-2.any関数の実装               
+any' :: (a -> Bool) -> [a] -> Bool
+any' p [] = False
+any' p (x: xs) |p x = True
+               |otherwise = any' p xs
+               
+-- 2-3.takeWhile関数の実装
