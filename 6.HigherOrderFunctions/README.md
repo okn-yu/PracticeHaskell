@@ -20,3 +20,8 @@ map f (x: xs) = f x : map f xs
 filter :: (a -> Bool) -> [a] -> [a]
 filter p xs = [x| x <- xs, p x]
 ```
+# 畳み込み関数foldr
+## foldr関数の定義
+
+# 畳み込み関数fldl
+## fold関数の定義
