@@ -37,6 +37,12 @@ merge x [] = x
 merge [] x = x
 merge (x: xs) (y: ys) = if x > y then y: (merge ys (x: xs)) else x: (merge xs (y: ys))
 
+-- 5.マージソート関数の実装
+msort :: Ord a => [a] -> [a]
+msort [x] = [x]
+msort xs = merge (msort y1) (msort y2)
+                where (y1, y2) halve xs
+
 -- 6-1. sum関数の実装
 sum' :: Num a => [a] -> a
 sum' [] = 0
