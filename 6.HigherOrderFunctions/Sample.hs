@@ -16,3 +16,9 @@ any' p (x: xs) |p x = True
                |otherwise = any' p xs
                
 -- 2-3.takeWhile関数の実装
+takeWhile' :: (a -> Bool) -> [a] -> [a]
+takeWhile' p [] = []
+takeWhile' p (x: xs) | p x = x : takeWhile' p xs
+                     | otherwise = []
+
+-- 2-3.dropWhile関数の実装
