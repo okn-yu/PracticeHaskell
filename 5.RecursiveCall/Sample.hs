@@ -41,3 +41,9 @@ merge (x: xs) (y: ys) = if x > y then y: (x: (merge xs ys)) else x: (y: (merge x
 sum' :: Num a => [a] -> a
 sum' [] = 0
 sum' (x: xs) = x + (sum' xs)
+
+-- 6-2. take関数の実装
+take' :: Int -> [a] -> [a]
+take' 0 (x: xs) = []
+take' n [] = []
+take' n (x: xs) = x : take' (n - 1) xs
