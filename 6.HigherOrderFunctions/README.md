@@ -37,7 +37,7 @@ foldr f v (x: xs) = f x (forlr f v xs)
 --                = f x (f x' foldr f v xs')
 ```
 
-# 畳み込み関数fldl
+# 畳み込み関数foldl
 ## fold関数の定義
 - リストに対して左結合の演算＊を順番に適用する場合に利用する
 - (sum, product, or, and関数などの)再帰処理の記述においてfoldlを用いてると簡潔に書き直すことができる 
