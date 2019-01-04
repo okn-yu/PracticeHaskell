@@ -44,7 +44,7 @@ foldr f v (x: xs) = f x (forlr f v xs)
 - foldrとfoldlのどちらも利用可能な場合は効率を考慮してどちらの定義を利用するかを決める
  
 ```
-foldl * v0 [v1, v2, v3, ... v_n] = ((((x0 * v1) * v2) * v3 ) * v_n)
+foldl * v0 [v1, v2, v3, ... v_n] = ((((x0 * v1) * v2) * v3 ) * v4) * v_n
 ```
 
 - 定義は以下の通り
