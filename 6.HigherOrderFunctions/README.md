@@ -26,14 +26,32 @@ filter p xs = [x| x <- xs, p x]
 - (sum, product, or, and関数などの)再帰処理の記述においてfoldrを用いてると簡潔に書き直すことができる 
  
 ```
-foldr * v0 [v1, v2, v3, ... v_n] = [(v0 * (v1 * (v2 * (v3 * (v4 * v_n)))))
+foldr * x0 [v1, v2, v3, ... v_n] = x0 * (v1 * (v2 * (v3 * (v4 * v_n))))
 ```
 
 - 定義は以下の通り
 ```
-foldr :: (b -> [a] -> b) -> b -> [a] -> b
-foldr f v (x: xs) =  foldr f x (forlr f v xs)
+foldr :: (a -> b -> b) -> b -> [a] -> b
+foldr f v [] = v
+foldr f v (x: xs) = f x (forlr f v xs)
+                  = f x (f x' foldr f v xs')
 ```
 
 # 畳み込み関数fldl
 ## fold関数の定義
+- リストに対して左結合の演算＊を順番に適用する場合に利用する
+- (sum, product, or, and関数などの)再帰処理の記述においてfoldlを用いてると簡潔に書き直すことができる 
+- foldrとfoldlのどちらも利用可能な場合は効率を考慮してどちらの定義を利用するかを決める
+ 
+```
+foldl * v0 [v1, v2, v3, ... v_n] = ((((x0 * v1) * v2) * v3 ) * v_n)
+```
+
+- 定義は以下の通り
+```
+foldl :: (a -> b -> a) -> a -> [b] -> a
+foldl f v [] = v
+foldl f v (x: xs) =  foldl f (f v x) xs
+                  =  foldl f (f (f v x) x') xs'
+```
+
