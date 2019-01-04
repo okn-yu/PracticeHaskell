@@ -26,3 +26,10 @@ dropWhile'  :: (a -> Bool) -> [a] -> [a]
 dropWhile' p [] = []
 dropWhile' p (x: xs) | p x = []
                      | otherwise = x : dropWhile' p xs
+
+-- 3-1. map関数のfoldrを用いた実装
+map' :: (a -> b) -> [a] -> [b]
+map' f [] = []
+--map' f (x: xs) = f x : map' f xs
+
+map' f xs = foldr (:) [] xs 
