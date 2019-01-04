@@ -31,7 +31,7 @@ foldr * x0 [v1, v2, v3, ... v_n] = x0 * (v1 * (v2 * (v3 * (v4 * v_n))))
 
 - 定義は以下の通り
 ```
-foldr :: (a -> b -> b) -> b -> [a] -> b
+foldr :: (a -> b -> b) -> b -> [a] -> b　-- 右結合なのでfが型aと型bを引数とした場合は型bを返す
 foldr f v [] = v
 foldr f v (x: xs) = f x (forlr f v xs)
                   = f x (f x' foldr f v xs')
@@ -49,7 +49,7 @@ foldl * v0 [v1, v2, v3, ... v_n] = ((((x0 * v1) * v2) * v3 ) * v_n)
 
 - 定義は以下の通り
 ```
-foldl :: (a -> b -> a) -> a -> [b] -> a
+foldl :: (a -> b -> a) -> a -> [b] -> a　-- 右結合なのでfが型aと型bを引数とした場合は型を返す
 foldl f v [] = v
 foldl f v (x: xs) =  foldl f (f v x) xs
                   =  foldl f (f (f v x) x') xs'
