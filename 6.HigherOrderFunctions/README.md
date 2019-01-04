@@ -49,7 +49,7 @@ foldl * v0 [v1, v2, v3, ... v_n] = ((((x0 * v1) * v2) * v3 ) * v_n)
 
 - 定義は以下の通り
 ```
-foldl :: (a -> b -> a) -> a -> [b] -> a　-- 右結合なのでfが型aと型bを引数とした場合は型を返す
+foldl :: (a -> b -> a) -> a -> [b] -> a　-- 右結合なのでfが型aと型bを引数とした場合は型aを返す
 foldl f v [] = v
 foldl f v (x: xs) =  foldl f (f v x) xs
 --                =  foldl f (f (f v x) x') xs'
