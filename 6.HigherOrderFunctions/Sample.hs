@@ -33,3 +33,6 @@ map' f [] = []
 map' f xs = foldr ((:) . f) [] xs
 
 -- 3-1(2).filter関数のfoldrを用いた実装
+filter' :: (a -> Bool) -> [a] -> [a]
+filter' f [] = []
+filter' f xs = foldr (\x xs -> if f x then x:xs else xs) [] xs
