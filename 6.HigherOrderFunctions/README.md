@@ -58,3 +58,23 @@ foldl f v (x: xs) =  foldl f (f v x) xs
 --                =  foldl f (f (f v x) x') xs'
 ```
 
+# 合成演算
+- 失敗例
+```
+Prelude> :type negate . (+1) 
+negate . (+1) :: Num c => c -> c
+Prelude> negate . (+1) 1
+
+<interactive>:63:1: error:
+    • Non type-variable argument in the constraint: Num (a -> c)
+      (Use FlexibleContexts to permit this)
+    • When checking the inferred type
+        it :: forall c a. (Num c, Num (a -> c)) => a -> c
+```
+- 成功例
+```
+Prelude> :type (negate . (+1)) 
+(negate . (+1)) :: Num c => c -> c
+Prelude> (negate . (+1)) 1
+-2
+```
