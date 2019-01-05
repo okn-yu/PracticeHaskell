@@ -27,9 +27,9 @@ dropWhile' p [] = []
 dropWhile' p (x: xs) | p x = []
                      | otherwise = x : dropWhile' p xs
 
--- 3-1. map関数のfoldrを用いた実装
+-- 3-1(1). map関数のfoldrを用いた実装
 map' :: (a -> b) -> [a] -> [b]
 map' f [] = []
---map' f (x: xs) = f x : map' f xs
+map' f xs = foldr ((:) . f) [] xs
 
-map' f xs = foldr (:) [] xs 
+-- 3-1(2).filter関数のfoldrを用いた実装
