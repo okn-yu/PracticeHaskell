@@ -45,7 +45,7 @@ dec2int xs = foldr (\n ns -> n + 10 * ns) 0 $ reverse xs
 curry' :: ((a, b) -> c) -> a -> b -> c
 curry' f  = (\ a -> (\ b -> f (a, b)))
 
-```
+{-
 -- 動作確認
 *Main> add' = curry(\ (x,y) -> x + y)
 *Main> add' 2 3
@@ -53,4 +53,4 @@ curry' f  = (\ a -> (\ b -> f (a, b)))
 *Main> add'' = curry'(\ (x,y) -> x + y)
 *Main> add'' 2 3
 5
-```
+-}
