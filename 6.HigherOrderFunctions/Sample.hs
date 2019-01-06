@@ -40,3 +40,17 @@ filter' f xs = foldr (\x xs -> if f x then x:xs else xs) [] xs
 -- 4. foldl を用いた十進表記を整数に変換する関数の実装
 dec2int :: Num a => [a] -> a
 dec2int xs = foldr (\n ns -> n + 10 * ns) 0 $ reverse xs
+
+-- 6-1. curry関数の実装
+curry' :: ((a, b) -> c) -> a -> b -> c
+curry' f  = (\ a -> (\ b -> f (a, b)))
+
+```
+-- 動作確認
+*Main> add' = curry(\ (x,y) -> x + y)
+*Main> add' 2 3
+5
+*Main> add'' = curry'(\ (x,y) -> x + y)
+*Main> add'' 2 3
+5
+```
