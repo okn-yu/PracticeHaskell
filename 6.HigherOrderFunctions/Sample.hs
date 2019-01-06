@@ -38,4 +38,5 @@ filter' f [] = []
 filter' f xs = foldr (\x xs -> if f x then x:xs else xs) [] xs
 
 -- 4. foldl を用いた十進表記を整数に変換する関数の実装
--- intToDigitを使って文字列の結合として捉え直す
+dec2int :: Num a => [a] -> a
+dec2int xs = foldr (\n ns -> n + 10 * ns) 0 $ reverse xs
