@@ -43,7 +43,8 @@ dec2int xs = foldr (\n ns -> n + 10 * ns) 0 $ reverse xs
 
 -- 6-1. curry関数の実装
 -- curry関数を実装すると部分適用が実行可能となることを意識すること
-curry' :: ((a, b) -> c) -> a -> b -> c
+-- curry化の定義：組をとる関数を、引数を二つとる関数へ変換する
+curry' :: ((a, b) -> c) -> (a -> b -> c)
 curry' f  = (\ a -> (\ b -> f (a, b)))
 
 {-
@@ -55,3 +56,8 @@ curry' f  = (\ a -> (\ b -> f (a, b)))
 *Main> add'' 2 3
 5
 -}
+
+-- 6-2. uncurry関数の実装
+-- uncurry化の定義：引数を二つとる関数を、組をとる関数へ変換する
+curry' :: (a -> b -> c) -> ((a, b) -> c)
+curry' f  = (\ a -> (\ b -> f (a, b)))
