@@ -42,6 +42,7 @@ dec2int :: Num a => [a] -> a
 dec2int xs = foldr (\n ns -> n + 10 * ns) 0 $ reverse xs
 
 -- 6-1. curry関数の実装
+-- curry関数を実装すると部分適用が実行可能となることを意識すること
 curry' :: ((a, b) -> c) -> a -> b -> c
 curry' f  = (\ a -> (\ b -> f (a, b)))
 
