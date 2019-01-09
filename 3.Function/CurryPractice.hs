@@ -11,7 +11,10 @@ add (x, y) = x + y
 -- x, yという2つの引数を受け取っているため、add'は引数を2つとる関数
 
 add' :: Int -> (Int -> Int)
-add' x y = x + y
+add' x = (\ y -> x + y)
+
+-- 以下と実行結果は同じとなる
+-- add' x y = x + y
 
 -- *Main> add' 1 2
 -- 3
