@@ -69,3 +69,16 @@ uncarry' f = \ (x, y) -> f x y
 -- 下の記載は誤り
 -- curry' f  = (\ a -> (\ b -> f (a, b)))
 
+-- 7-1. chop8関数のunfoldを用いた実装
+type Bit = Int
+
+unfold p h t x | p x       = []
+               | otherwise = h x : unfold p h t (t x)
+
+chop8 :: [Bit] -> [[Bit]]
+--chop8 [] = []
+--chop8 bits = take 8 bits : chop8 (drop 8 bits)
+
+chop8 = unfold (null)(take 8)(drop 8)
+
+-- 7-2. map f関数のunfoldを用いた実装
