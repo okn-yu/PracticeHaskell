@@ -15,18 +15,15 @@ int2bin = unfold (==0)(`mod`2)(`div`2)
 make8 :: [Bit] -> [Bit]
 make8 bits = take 8 (bits ++ repeat 0)
 
-addpbit :: [[Bit]] -> [[Bit]]
-addpbit = map (reverse . _addpbit . reverse)
+addpbit :: [Int] -> [Int]
+addpbit xs = xs ++ (n: [])
+           where n = pbit xs
 
-_addpbit :: [Int] -> [Int]
-_addpbit xs = n : xs
-           where n = calcpbit xs
-
-calcpbit :: [Int] -> Int
-calcpbit xs =  if even . sum $ (filter (==1) xs) then 0 else 1
+pbit :: [Int] -> Int
+pbit xs =  if even . sum $ (filter (==1) xs) then 0 else 1
 
 encode :: String -> [Bit]
-encode = concat . addpbit . map (make8 . int2bin . ord)
+encode = concat . map (addpbit . make8 . int2bin . ord)
 
 -- ビット列受信用関数
 
@@ -38,7 +35,7 @@ chop9 = unfold (null)(take 9)(drop 9)
 
 checkpbit :: [Bit] -> [Bit]
 checkpbit xs = if (x == n ) then xs else error "transmit error."
-               where n = calcpbit (take 8 xs)
+               where n = pbit (take 8 xs)
                      x = xs !! 8
 
 bit2int :: [Bit] -> Int
@@ -58,4 +55,4 @@ channel = id
 --channel = tail
 
 main = do
-    print(transmit("This is a pen."))
+    print(transmit("Programing Haskell."))
