@@ -6,7 +6,8 @@
 - 直接Intellij上でファイルの実行によりコンテナをよび出す方法がうまく動かない...
 
 ```
-docker run --rm -v /Users/mofuneko/SoftwareDevelopment/Docker:/tmp haskell:latest runghc /tmp/test.hs
+docker run --rm -v /Users/mofuneko/SoftwareDevelopment/GitHub/PracticeHaskell/Source:/tmp haskell:7.8 runghc /tmp/NumericalFormula.hs
+
 ```
 
 ## プログラムの実行方法 (ghci)
