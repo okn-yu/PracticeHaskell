@@ -1,4 +1,5 @@
 -- プログラミングHaskellの第8章
+-- 数式パーサーの実装
 
 import Prelude hiding (guard, fail)
 import Data.Char
