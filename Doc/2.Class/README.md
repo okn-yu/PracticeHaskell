@@ -22,6 +22,6 @@ Prelude> :type tail
 tail :: [a] -> [a]
 Prelude> reverse []
 []
-Prelude> head []
-*** Exception: Prelude.head: empty list
+Prelude> tail []
+*** Exception: Prelude.tail: empty list
 ```
